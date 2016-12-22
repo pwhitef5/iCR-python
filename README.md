@@ -27,7 +27,7 @@ Features: iControl version, debug mode, folders, iWorkflow tokens, select, top, 
 
 Example:
 
-   ```
+   ```python
    #!/usr/bin/env python
    from iCR import iCR
    bigip = iCR("172.24.9.132","admin","admin",icontrol_version="11.6.0",debug=False)
