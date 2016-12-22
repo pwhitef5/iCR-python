@@ -26,31 +26,31 @@ Features: iControl version, debug mode, folders, iWorkflow tokens, select, top, 
 
 Example:
 
-#!/usr/bin/env python
+\#!/usr/bin/env python
 from iCR import iCR
 bigip = iCR("172.24.9.132","admin","admin",icontrol_version="11.6.0",debug=False)
-# List all Virtual Servers in Common partition
+\# List all Virtual Servers in Common partition
 virts = bigip.get("ltm/virtual")
-# Write a list of the Virtual Servers
+\# Write a list of the Virtual Servers
 for vs in virts['items']:
    print vs['name']
 print "+++++++++++++++++"
 print
 
-#Create a Virtual Server
+\#Create a Virtual Server
 vs_config = {'name':'test_vs'}
 createvs = bigip.create("ltm/virtual",vs_config)
 
-# Retrieve the VS we just created
+\# Retrieve the VS we just created
 virt = bigip.get("ltm/virtual/test_vs",select="name")
 print "Virtual Server created: " + virt['name']
 
-# Now delete the VS we just created
+\# Now delete the VS we just created
 delvs = bigip.delete("ltm/virtual/test_vs")
 
-# Retrieve ASM policy to ID mapping
+\# Retrieve ASM policy to ID mapping
 policies = bigip.get("asm/policies",select="name,id")
-# Print  a table of ASM policies with learning mode
+\# Print  a table of ASM policies with learning mode
 print
 print "Policy Name                  Learning Mode"
 print "------------------------------------------"
